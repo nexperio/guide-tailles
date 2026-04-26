@@ -3,457 +3,643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide de Taille Interactif - Nexperio</title>
+    <title>Guide de tailles · Nexperio Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --paper: #F4EFE3;
+            --paper-alt: #EAE3D0;
+            --paper-deep: #DDD3BA;
+            --ink: #0B0A08;
+            --ink-2: #3A362C;
+            --ink-3: #6B6557;
+            --accent: #FF5A00;
+            --accent-deep: #E04A00;
+            --yellow: #FFC233;
+            --good: #1F5C1B;
+            --bad: #A82A1A;
+            --hair: #1F1B14;
+            --hair-soft: #1F1B1422;
+            --gradient: linear-gradient(135deg, #FF5A00 0%, #FFC233 100%);
+            --serif: "Fraunces", Georgia, serif;
+            --sans: Inter, system-ui, sans-serif;
+            --mono: "JetBrains Mono", monospace;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: white;
+            font-family: var(--sans);
+            background: var(--paper);
             min-height: 100vh;
-            color: #333;
+            color: var(--ink);
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 32px 28px 80px;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* ── Brand bar ─────────────────────────────────────── */
+        .brand-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1.5px solid var(--hair);
+            margin-bottom: 48px;
+        }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-name {
+            font-family: var(--serif);
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+        }
+        .brand-name em {
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 400;
+        }
+        .brand-meta {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-2);
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        /* ── Eyebrow ───────────────────────────────────────── */
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-2);
         }
 
-        .header h1 .emoji {
-            color: #4376bd;
+        /* ── Hero ──────────────────────────────────────────── */
+        .hero { margin-bottom: 64px; }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 72px;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            font-weight: 400;
+            margin-top: 14px;
         }
-
-        .header h1 .title {
-            background: linear-gradient(45deg, #ff6600 0%, #fcc01e 100%);
+        .hero h1 em {
+            font-style: italic;
+            background: var(--gradient);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: transparent;
+            font-weight: 400;
+            display: inline-block;
+            padding: 0 0.12em 0.18em 0;
+            margin: 0 -0.12em -0.18em 0;
+        }
+        .hero .lede {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 19px;
+            line-height: 1.5;
+            color: var(--ink-2);
+            max-width: 640px;
+            margin-top: 24px;
         }
 
-        .header p {
-            font-size: 1.2rem;
-            color: #666;
+        /* ── Section ───────────────────────────────────────── */
+        section { margin-bottom: 56px; }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .section-head .num {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 16px;
+            color: var(--accent);
+        }
+        .section-head h2 {
+            font-family: var(--serif);
+            font-size: 36px;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            font-weight: 400;
+        }
+        .section-head h2 em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+        }
+        .section-intro {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 16px;
+            color: var(--ink-2);
+            max-width: 640px;
+            margin-bottom: 28px;
+        }
+
+        /* ── Cards génériques ──────────────────────────────── */
+        .card {
+            background: var(--paper);
+            border: 1.5px solid var(--hair);
+            padding: 24px;
+        }
+        .card.alt { background: var(--paper-alt); }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+        /* ── Mesures (cartes pédagogiques) ─────────────────── */
+        .measure-card .eyebrow { margin-bottom: 12px; }
+        .measure-card h4 {
+            font-family: var(--serif);
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+            font-style: italic;
             margin-bottom: 10px;
         }
-
-        .morphology-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .measure-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--ink-2);
         }
 
+        /* ── Morphologie ──────────────────────────────────── */
+        .morpho-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .morpho-card {
+            background: var(--paper);
+            border: 1.5px solid var(--hair);
+            padding: 22px 20px;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease;
+            position: relative;
+        }
+        .morpho-card:hover { background: var(--paper-alt); }
+        .morpho-card.selected {
+            border-color: var(--accent);
+            background: var(--paper-alt);
+        }
+        .morpho-card.selected::before {
+            content: "↗";
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            color: var(--accent);
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 18px;
+        }
+        .morpho-card .glyph {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 36px;
+            line-height: 1;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .morpho-card[data-morphology="apple"] .glyph {
+            transform: rotate(180deg);
+        }
+        .morpho-card h3 {
+            font-family: var(--serif);
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .morpho-card p {
+            font-size: 12px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+
+        /* ── Formulaire ───────────────────────────────────── */
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 28px;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        .form-group { margin-bottom: 18px; }
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-            font-size: 1rem;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-2);
         }
-
-        .form-group input, .form-group select {
+        .form-group input,
+        .form-group select {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #f9f9f9;
+            padding: 12px 14px;
+            border: 1.5px solid var(--hair);
+            background: var(--paper);
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--ink);
+            border-radius: 0;
+            transition: background 0.15s ease;
+            -webkit-appearance: none;
+            appearance: none;
         }
-
-        .form-group input:focus, .form-group select:focus {
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%230B0A08' stroke-width='1.5' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #4376bd;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(67, 118, 189, 0.1);
+            background: var(--paper-alt);
+            border-color: var(--accent);
         }
 
-        .morphology-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .morphology-card {
-            background: #f9f9f9;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
+        /* ── CTA ──────────────────────────────────────────── */
+        .cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient);
+            color: var(--ink);
+            border: 1.5px solid var(--hair);
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .morphology-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .morphology-card.selected {
-            border-color: #ff6600;
-            background: linear-gradient(45deg, rgba(255, 102, 0, 0.1), rgba(252, 192, 30, 0.1));
-        }
-
-        .morphology-card .icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .morphology-card h3 {
-            color: #4376bd;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .morphology-card p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .calculate-btn {
-            background: linear-gradient(45deg, #ff6600 0%, #fcc01e 100%);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin: 20px 0;
-        }
-
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
-        }
-
-        .results-section {
-            background: linear-gradient(135deg, #153d64 0%, #4376bd 100%);
-            color: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 30px;
-            display: none;
-        }
-
-        .size-recommendation {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .size-recommendation h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .recommended-size {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #fcc01e;
-            margin: 20px 0;
-        }
-
-        .size-chart {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
+            border-radius: 0;
             margin-top: 20px;
-            backdrop-filter: blur(10px);
+            transition: transform 0.1s ease;
+        }
+        .cta:hover { transform: translateY(-1px); }
+        .cta:active { transform: translateY(0); }
+
+        /* ── Ordonnance (Rx) ─────────────────────────────── */
+        .rx {
+            border-left: 2px solid var(--accent);
+            padding: 18px 24px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--ink);
+            background: var(--paper-alt);
+            margin: 24px 0;
+        }
+        .rx-sig {
+            display: block;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--ink-2);
         }
 
-        .size-chart h4 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        /* ── Résultats ────────────────────────────────────── */
+        #results { display: none; }
+        .verdict {
+            border: 1.5px solid var(--hair);
+            background: var(--paper);
+            padding: 36px 32px;
+            margin-bottom: 24px;
+        }
+        .verdict-eyebrow {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-2);
+        }
+        .verdict-size {
+            font-family: var(--serif);
+            font-size: 144px;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            font-weight: 400;
+            margin-top: 12px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .verdict-confidence {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 18px;
+            color: var(--ink-2);
+            margin-top: 8px;
+        }
+        .verdict-confidence .tag {
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
+        /* ── Tag ──────────────────────────────────────────── */
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1.5px solid var(--hair);
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .tag.dark { background: var(--ink); color: var(--paper); }
+        .tag.good { background: var(--good); color: var(--paper); border-color: var(--good); }
+        .tag.bad { background: var(--bad); color: var(--paper); border-color: var(--bad); }
+
+        /* ── Tableau de tailles ──────────────────────────── */
+        .size-table-wrap {
+            border: 1.5px solid var(--hair);
+            background: var(--paper);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .size-table-wrap h4 {
+            font-family: var(--serif);
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
         .size-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            font-size: 13px;
         }
-
-        .size-table th, .size-table td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .size-table th,
+        .size-table td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--hair-soft);
         }
-
         .size-table th {
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-2);
         }
-
+        .size-table td {
+            font-family: var(--mono);
+            color: var(--ink);
+        }
+        .size-table td:first-child {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 500;
+        }
         .size-table tr.highlighted {
-            background: rgba(252, 192, 30, 0.3);
-            font-weight: bold;
+            background: var(--paper-alt);
+        }
+        .size-table tr.highlighted td {
+            color: var(--ink);
+            font-weight: 500;
+        }
+        .size-table tr.highlighted td:first-child {
+            color: var(--accent);
         }
 
-        .tips-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
-            backdrop-filter: blur(10px);
+        /* ── Posologie / conseils ─────────────────────────── */
+        .posologie {
+            border: 1.5px solid var(--hair);
+            background: var(--paper-alt);
+            padding: 28px;
         }
-
-        .tips-section h4 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .posologie h4 {
+            font-family: var(--serif);
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 18px;
         }
-
-        .tips-section ul {
+        .posologie ol {
             list-style: none;
-            padding: 0;
+            counter-reset: rx;
         }
-
-        .tips-section li {
-            padding: 8px 0;
-            padding-left: 20px;
+        .posologie ol li {
+            counter-increment: rx;
+            padding: 12px 0 12px 48px;
             position: relative;
+            border-bottom: 1px solid var(--hair-soft);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--ink);
         }
-
-        .tips-section li:before {
-            content: "✨";
+        .posologie ol li:last-child { border-bottom: none; }
+        .posologie ol li::before {
+            content: "/ " counter(rx, decimal-leading-zero);
             position: absolute;
             left: 0;
+            top: 12px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--accent);
         }
 
-        .advice-section {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            border-left: 5px solid #4376bd;
-        }
-
-        .advice-section h3 {
-            color: #4376bd;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .advice-section ul {
+        /* ── Conseils généraux ────────────────────────────── */
+        .advice ul {
             list-style: none;
-            padding: 0;
         }
-
-        .advice-section li {
-            padding: 10px 0;
-            padding-left: 25px;
+        .advice ul li {
+            padding: 14px 0 14px 32px;
+            border-bottom: 1px solid var(--hair-soft);
             position: relative;
-            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--ink);
         }
-
-        .advice-section li:before {
-            content: "✓";
+        .advice ul li:last-child { border-bottom: none; }
+        .advice ul li::before {
+            content: "§";
             position: absolute;
             left: 0;
-            color: #4376bd;
-            font-weight: bold;
+            top: 14px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 18px;
+            color: var(--accent);
         }
 
-        .measurement-guide {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* ── Footer ───────────────────────────────────────── */
+        .colophon {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1.5px solid var(--hair);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-3);
         }
 
-        .measurement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .measurement-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            border: 2px solid #e0e0e0;
-        }
-
-        .measurement-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .measurement-card h4 {
-            color: #4376bd;
-            margin-bottom: 10px;
-        }
-
-        .measurement-card p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
+        /* ── Responsive ───────────────────────────────────── */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .form-grid {
+            .container { padding: 20px 18px 60px; }
+            .hero h1 { font-size: 44px; }
+            .hero .lede { font-size: 16px; }
+            .section-head h2 { font-size: 26px; }
+            .grid-2, .grid-3, .grid-4, .morpho-grid, .form-grid {
                 grid-template-columns: 1fr;
             }
-
-            .morphology-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .recommended-size {
-                font-size: 2rem;
-            }
+            .verdict-size { font-size: 96px; }
+            .brand-meta { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1><span class="emoji">📏</span> <span class="title">Guide de Taille Interactif</span></h1>
-            <p>Trouvez la taille parfaite selon votre morphologie</p>
+
+        <!-- ── Brand bar ─────────────────────────────── -->
+        <div class="brand-bar">
+            <div class="brand">
+                <svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="nxLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FF5A00"/>
+                            <stop offset="100%" stop-color="#FFC233"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="32" y1="32" x2="68" y2="68" stroke="url(#nxLogoGrad)" stroke-width="20" stroke-linecap="round"/>
+                    <circle cx="30" cy="30" r="22" fill="url(#nxLogoGrad)"/>
+                    <circle cx="72" cy="72" r="24" fill="url(#nxLogoGrad)"/>
+                    <circle cx="78" cy="22" r="10" fill="url(#nxLogoGrad)"/>
+                    <circle cx="22" cy="78" r="10" fill="url(#nxLogoGrad)"/>
+                </svg>
+                <span class="brand-name">nexperio<em>.tech</em></span>
+            </div>
+            <div class="brand-meta">Guide de tailles · v1.0</div>
         </div>
 
-        <div class="measurement-guide">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4376bd;">📐 Comment prendre vos mesures</h2>
+        <!-- ── Hero ──────────────────────────────────── -->
+        <div class="hero">
+            <div class="eyebrow">↗ Diagnostic morphologique</div>
+            <h1>Trouvez la<br/><em>taille juste</em></h1>
+            <p class="lede">
+                Quatre mesures, une morphologie, un verdict — et l'ordonnance qui va avec.
+                Le cabinet ausculte votre silhouette et prescrit la bonne coupe.
+            </p>
+        </div>
 
-            <div class="measurement-grid">
-                <div class="measurement-card">
-                    <div class="icon">👕</div>
+        <!-- ── § I · Anamnèse : prise de mesures ────── -->
+        <section>
+            <div class="section-head">
+                <span class="num">/ I</span>
+                <h2><em>Anamnèse</em>. Comment se mesurer.</h2>
+            </div>
+            <p class="section-intro">
+                Avant le diagnostic, le geste juste. Mesurez sur des sous-vêtements ajustés, le matin, sans serrer le mètre.
+            </p>
+
+            <div class="grid-4">
+                <div class="card measure-card">
+                    <div class="eyebrow">↗ 01</div>
                     <h4>Tour de poitrine</h4>
-                    <p>Placez le mètre ruban horizontalement au niveau de la pointe des seins, en gardant les bras le long du corps.</p>
+                    <p>Mètre ruban à l'horizontale, au niveau de la pointe des seins, bras le long du corps.</p>
                 </div>
-
-                <div class="measurement-card">
-                    <div class="icon">📏</div>
+                <div class="card measure-card">
+                    <div class="eyebrow">↗ 02</div>
                     <h4>Tour de taille</h4>
-                    <p>Mesurez la partie la plus fine de votre taille, généralement située entre les côtes et les hanches.</p>
+                    <p>La partie la plus fine, généralement entre les côtes et les hanches.</p>
                 </div>
-
-                <div class="measurement-card">
-                    <div class="icon">🍑</div>
+                <div class="card measure-card">
+                    <div class="eyebrow">↗ 03</div>
                     <h4>Tour de hanches</h4>
-                    <p>Mesurez la partie la plus large de vos hanches, en gardant les pieds joints.</p>
+                    <p>La partie la plus large, pieds joints, mètre à plat.</p>
                 </div>
-
-                <div class="measurement-card">
-                    <div class="icon">📐</div>
+                <div class="card measure-card">
+                    <div class="eyebrow">↗ 04</div>
                     <h4>Longueur du buste</h4>
-                    <p>Mesurez de la base du cou jusqu'à la taille naturelle, en passant par la pointe du sein.</p>
+                    <p>De la base du cou à la taille naturelle, en passant par la pointe du sein.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="morphology-section">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #4376bd;">👥 Sélectionnez votre morphologie</h2>
+        <!-- ── § II · Examen : morphologie + mesures ── -->
+        <section>
+            <div class="section-head">
+                <span class="num">/ II</span>
+                <h2>L'<em>examen</em>. Votre morphologie.</h2>
+            </div>
+            <p class="section-intro">
+                Choisissez le profil qui décrit le mieux votre silhouette. Le cabinet ajuste son verdict en fonction.
+            </p>
 
-            <div class="morphology-cards">
-                <div class="morphology-card" data-morphology="hourglass">
-                    <div class="icon">⏳</div>
+            <div class="morpho-grid">
+                <div class="morpho-card" data-morphology="hourglass">
+                    <div class="glyph">⧖</div>
                     <h3>Sablier</h3>
-                    <p>Épaules et hanches de même largeur, taille bien marquée</p>
+                    <p>Épaules et hanches alignées, taille bien marquée.</p>
                 </div>
-
-                <div class="morphology-card" data-morphology="pear">
-                    <div class="icon">🍐</div>
+                <div class="morpho-card" data-morphology="pear">
+                    <div class="glyph">◭</div>
                     <h3>Poire</h3>
-                    <p>Hanches plus larges que les épaules, taille marquée</p>
+                    <p>Hanches plus larges que les épaules, taille marquée.</p>
                 </div>
-
-                <div class="morphology-card" data-morphology="apple">
-                    <div class="icon">🍎</div>
+                <div class="morpho-card" data-morphology="apple">
+                    <div class="glyph">◮</div>
                     <h3>Pomme</h3>
-                    <p>Épaules plus larges que les hanches, taille peu marquée</p>
+                    <p>Épaules plus larges, taille peu marquée.</p>
                 </div>
-
-                <div class="morphology-card" data-morphology="rectangle">
-                    <div class="icon">⬜</div>
+                <div class="morpho-card" data-morphology="rectangle">
+                    <div class="glyph">▭</div>
                     <h3>Rectangle</h3>
-                    <p>Épaules, taille et hanches de même largeur</p>
+                    <p>Épaules, taille et hanches alignées.</p>
                 </div>
             </div>
 
             <div class="form-grid">
                 <div>
                     <div class="form-group">
-                        <label for="bust">👕 Tour de poitrine (cm)</label>
-                        <input type="number" id="bust" placeholder="Ex: 92" min="60" max="150" step="0.5">
+                        <label for="bust">Tour de poitrine · cm</label>
+                        <input type="number" id="bust" placeholder="92" min="60" max="150" step="0.5">
                     </div>
-
                     <div class="form-group">
-                        <label for="waist">📏 Tour de taille (cm)</label>
-                        <input type="number" id="waist" placeholder="Ex: 75" min="50" max="130" step="0.5">
+                        <label for="waist">Tour de taille · cm</label>
+                        <input type="number" id="waist" placeholder="75" min="50" max="130" step="0.5">
                     </div>
-
                     <div class="form-group">
-                        <label for="hips">🍑 Tour de hanches (cm)</label>
-                        <input type="number" id="hips" placeholder="Ex: 98" min="70" max="160" step="0.5">
+                        <label for="hips">Tour de hanches · cm</label>
+                        <input type="number" id="hips" placeholder="98" min="70" max="160" step="0.5">
                     </div>
                 </div>
-
                 <div>
                     <div class="form-group">
-                        <label for="height">📐 Taille (cm)</label>
-                        <input type="number" id="height" placeholder="Ex: 165" min="140" max="200" step="1">
+                        <label for="height">Taille corporelle · cm</label>
+                        <input type="number" id="height" placeholder="165" min="140" max="200" step="1">
                     </div>
-
                     <div class="form-group">
-                        <label for="weight">⚖️ Poids (kg)</label>
-                        <input type="number" id="weight" placeholder="Ex: 65" min="40" max="150" step="0.5">
+                        <label for="weight">Poids · kg</label>
+                        <input type="number" id="weight" placeholder="65" min="40" max="150" step="0.5">
                     </div>
-
                     <div class="form-group">
-                        <label for="clothingType">👗 Type de vêtement</label>
+                        <label for="clothingType">Type de vêtement</label>
                         <select id="clothingType">
-                            <option value="tops">Hauts (T-shirts, chemises)</option>
-                            <option value="bottoms">Bas (Pantalons, jupes)</option>
+                            <option value="tops">Hauts — t-shirts, chemises</option>
+                            <option value="bottoms">Bas — pantalons, jupes</option>
                             <option value="dresses">Robes</option>
                             <option value="underwear">Sous-vêtements</option>
                             <option value="outerwear">Vestes et manteaux</option>
@@ -462,62 +648,83 @@
                 </div>
             </div>
 
-            <button class="calculate-btn" onclick="calculateSize()">
-                🔍 Trouver ma taille idéale
-            </button>
+            <button class="cta" onclick="calculateSize()">Établir le diagnostic</button>
+        </section>
+
+        <!-- ── § III · Verdict + ordonnance ─────────── -->
+        <div id="results">
+            <section>
+                <div class="section-head">
+                    <span class="num">/ III</span>
+                    <h2>Le <em>verdict</em>.</h2>
+                </div>
+
+                <div class="verdict">
+                    <div class="verdict-eyebrow">↗ Taille recommandée</div>
+                    <div class="verdict-size" id="recommendedSize">M</div>
+                    <div class="verdict-confidence">
+                        Niveau de confiance
+                        <span class="tag" id="confidenceTag">élevé</span>
+                    </div>
+                </div>
+
+                <div class="rx" id="ordonnance">
+                    « Le cabinet recommande la taille indiquée ci-dessus pour votre morphologie. »
+                    <span class="rx-sig">— Le Docteur Digital · Nexperio Tech</span>
+                </div>
+
+                <div class="size-table-wrap">
+                    <h4>Tableau de correspondance</h4>
+                    <table class="size-table" id="sizeTable">
+                        <thead>
+                            <tr>
+                                <th>Taille</th>
+                                <th>Poitrine · cm</th>
+                                <th>Taille · cm</th>
+                                <th>Hanches · cm</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sizeTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="posologie">
+                    <h4>Posologie</h4>
+                    <ol id="tipsList"></ol>
+                </div>
+            </section>
         </div>
 
-        <div class="results-section" id="results">
-            <h2 style="text-align: center; margin-bottom: 30px;">✨ Votre taille recommandée</h2>
-
-            <div class="size-recommendation">
-                <h3>Taille recommandée pour vous</h3>
-                <div class="recommended-size" id="recommendedSize">M</div>
-                <p id="confidenceLevel">Recommandation avec un niveau de confiance élevé</p>
+        <!-- ── § IV · Conseils transverses ──────────── -->
+        <section class="advice">
+            <div class="section-head">
+                <span class="num">/ IV</span>
+                <h2>Six règles pour <em>bien se mesurer</em>.</h2>
             </div>
-
-            <div class="size-chart">
-                <h4>📋 Tableau des tailles correspondant</h4>
-                <table class="size-table" id="sizeTable">
-                    <thead>
-                        <tr>
-                            <th>Taille</th>
-                            <th>Poitrine (cm)</th>
-                            <th>Taille (cm)</th>
-                            <th>Hanches (cm)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sizeTableBody">
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="tips-section" id="personalizedTips">
-                <h4>💡 Conseils personnalisés</h4>
-                <ul id="tipsList">
-                </ul>
-            </div>
-        </div>
-
-        <div class="advice-section">
-            <h3>💡 Conseils pour bien choisir sa taille</h3>
             <ul>
-                <li>Prenez vos mesures sur des sous-vêtements ajustés, sans serrer</li>
-                <li>Mesurez-vous le matin, votre corps peut légèrement changer au cours de la journée</li>
-                <li>N'hésitez pas à prendre plusieurs mesures et faire la moyenne</li>
-                <li>Tenez compte de vos préférences : coupe ajustée ou plus ample</li>
-                <li>Consultez toujours le guide des tailles spécifique à chaque marque</li>
-                <li>En cas de doute entre deux tailles, privilégiez la taille supérieure</li>
+                <li>Mesurer sur des sous-vêtements ajustés, sans serrer le mètre.</li>
+                <li>Le faire le matin — le corps gonfle légèrement au cours de la journée.</li>
+                <li>Prendre plusieurs mesures et faire la moyenne pour fiabiliser.</li>
+                <li>Tenir compte de la coupe souhaitée : ajustée ou fluide.</li>
+                <li>Toujours vérifier le guide de tailles propre à chaque marque.</li>
+                <li>En cas de doute entre deux tailles, privilégier la taille supérieure.</li>
             </ul>
+        </section>
+
+        <div class="colophon">
+            <span>Nexperio Tech · Guide de tailles</span>
+            <span>« Le Diagnostic »</span>
+            <span>v1.0</span>
         </div>
+
     </div>
 
     <script>
         let selectedMorphology = null;
 
-        document.querySelectorAll('.morphology-card').forEach(card => {
+        document.querySelectorAll('.morpho-card').forEach(card => {
             card.addEventListener('click', function() {
-                document.querySelectorAll('.morphology-card').forEach(c => c.classList.remove('selected'));
+                document.querySelectorAll('.morpho-card').forEach(c => c.classList.remove('selected'));
                 this.classList.add('selected');
                 selectedMorphology = this.getAttribute('data-morphology');
             });
@@ -575,7 +782,7 @@
             const clothingType = document.getElementById('clothingType').value;
 
             if (!bust || !waist || !hips || !selectedMorphology) {
-                alert('Veuillez remplir tous les champs obligatoires et sélectionner votre morphologie');
+                alert('Le cabinet a besoin de toutes vos mesures et de votre morphologie pour établir un diagnostic.');
                 return;
             }
 
@@ -587,22 +794,18 @@
             const chart = sizeCharts[clothingType];
             let bestSize = 'M';
             let bestScore = Infinity;
-
             const weights = getMorphologyWeights(morphology, clothingType);
 
             Object.keys(chart).forEach(size => {
                 const sizeData = chart[size];
-
                 let score = 0;
 
                 if (bust < sizeData.bust[0] || bust > sizeData.bust[1]) {
                     score += Math.min(Math.abs(bust - sizeData.bust[0]), Math.abs(bust - sizeData.bust[1])) * weights.bust;
                 }
-
                 if (waist < sizeData.waist[0] || waist > sizeData.waist[1]) {
                     score += Math.min(Math.abs(waist - sizeData.waist[0]), Math.abs(waist - sizeData.waist[1])) * weights.waist;
                 }
-
                 if (hips < sizeData.hips[0] || hips > sizeData.hips[1]) {
                     score += Math.min(Math.abs(hips - sizeData.hips[0]), Math.abs(hips - sizeData.hips[1])) * weights.hips;
                 }
@@ -618,50 +821,49 @@
 
         function getMorphologyWeights(morphology, clothingType) {
             const baseWeights = { bust: 1, waist: 1, hips: 1 };
-
             switch (morphology) {
-                case 'hourglass':
-                    return { bust: 1.2, waist: 1.5, hips: 1.2 };
+                case 'hourglass': return { bust: 1.2, waist: 1.5, hips: 1.2 };
                 case 'pear':
-                    if (clothingType === 'tops') {
-                        return { bust: 1.5, waist: 1.2, hips: 0.8 };
-                    } else {
-                        return { bust: 0.8, waist: 1.2, hips: 1.5 };
-                    }
-                case 'apple':
-                    return { bust: 1.5, waist: 1.0, hips: 1.2 };
-                case 'rectangle':
-                    return { bust: 1.2, waist: 1.0, hips: 1.2 };
-                default:
-                    return baseWeights;
+                    return clothingType === 'tops'
+                        ? { bust: 1.5, waist: 1.2, hips: 0.8 }
+                        : { bust: 0.8, waist: 1.2, hips: 1.5 };
+                case 'apple': return { bust: 1.5, waist: 1.0, hips: 1.2 };
+                case 'rectangle': return { bust: 1.2, waist: 1.0, hips: 1.2 };
+                default: return baseWeights;
             }
         }
 
         function displayResults(result, bust, waist, hips, clothingType, morphology, height, weight) {
             document.getElementById('recommendedSize').textContent = result.size;
-            document.getElementById('confidenceLevel').textContent = `Recommandation avec un niveau de confiance ${result.confidence}`;
+
+            const tag = document.getElementById('confidenceTag');
+            tag.textContent = result.confidence;
+            tag.className = 'tag ' + (result.confidence === 'élevé' ? 'good' : result.confidence === 'faible' ? 'bad' : 'dark');
+
+            // Ordonnance dynamique
+            document.getElementById('ordonnance').innerHTML =
+                `« Pour cette morphologie et ces mesures, je prescris la taille <em style="color:var(--accent);">${result.size}</em>. ` +
+                `Posologie : essayer cette taille en priorité, ` +
+                (result.confidence === 'faible'
+                    ? 'puis comparer avec la taille adjacente.'
+                    : 'la coupe doit tomber sans tirer ni flotter.') +
+                ' »<span class="rx-sig">— Le Docteur Digital · Nexperio Tech</span>';
 
             const sizeTableBody = document.getElementById('sizeTableBody');
             sizeTableBody.innerHTML = '';
-
             const chart = sizeCharts[clothingType];
             Object.keys(chart).forEach(size => {
                 const sizeData = chart[size];
                 const row = sizeTableBody.insertRow();
-
-                if (size === result.size) {
-                    row.classList.add('highlighted');
-                }
-
+                if (size === result.size) row.classList.add('highlighted');
                 row.insertCell(0).textContent = size;
-                row.insertCell(1).textContent = `${sizeData.bust[0]} - ${sizeData.bust[1]}`;
-                row.insertCell(2).textContent = `${sizeData.waist[0]} - ${sizeData.waist[1]}`;
-                row.insertCell(3).textContent = `${sizeData.hips[0]} - ${sizeData.hips[1]}`;
+                row.insertCell(1).textContent = `${sizeData.bust[0]} – ${sizeData.bust[1]}`;
+                row.insertCell(2).textContent = `${sizeData.waist[0]} – ${sizeData.waist[1]}`;
+                row.insertCell(3).textContent = `${sizeData.hips[0]} – ${sizeData.hips[1]}`;
             });
 
             const tipsList = document.getElementById('tipsList');
             tipsList.innerHTML = '';
-
             const tips = generatePersonalizedTips(result, morphology, clothingType, bust, waist, hips, height, weight);
             tips.forEach(tip => {
                 const li = document.createElement('li');
@@ -678,80 +880,59 @@
 
             switch (morphology) {
                 case 'hourglass':
-                    tips.push('Votre morphologie en sablier est parfaite pour les coupes ajustées qui soulignent votre taille');
+                    tips.push('Morphologie en sablier : privilégier les coupes ajustées qui marquent la taille.');
                     if (clothingType === 'dresses') {
-                        tips.push('Privilégiez les robes cintrées à la taille pour mettre en valeur votre silhouette');
+                        tips.push('Pour les robes, viser une coupe cintrée pour souligner la silhouette.');
                     }
                     break;
                 case 'pear':
-                    tips.push('Votre morphologie en poire se met en valeur avec des hauts plus ajustés et des bas plus fluides');
+                    tips.push('Morphologie en poire : équilibrer hauts ajustés et bas plus fluides.');
                     if (clothingType === 'tops') {
-                        tips.push('Optez pour des hauts avec des détails au niveau des épaules pour équilibrer votre silhouette');
+                        tips.push('Sur les hauts, des détails aux épaules rééquilibrent la silhouette.');
                     }
                     break;
                 case 'apple':
-                    tips.push('Votre morphologie en pomme est sublimée par des coupes qui allongent la silhouette');
-                    tips.push('Privilégiez les coupes empire ou les tuniques fluides');
+                    tips.push('Morphologie en pomme : préférer les coupes qui allongent — empire, tuniques fluides.');
                     break;
                 case 'rectangle':
-                    tips.push('Votre morphologie rectangle permet de créer des courbes avec des coupes structurées');
-                    tips.push('N\'hésitez pas à jouer avec les volumes et les ceintures pour créer une taille');
+                    tips.push('Morphologie rectangle : créer des courbes avec coupes structurées et ceintures.');
                     break;
             }
 
             if (result.confidence === 'faible') {
-                tips.push('Vos mesures sont entre deux tailles, nous vous conseillons d\'essayer les deux');
-                tips.push('Consultez les avis clients pour ce produit spécifique');
+                tips.push('Mesures entre deux tailles : tester les deux et comparer la coupe.');
+                tips.push('Consulter les avis clients pour ce produit spécifique.');
             }
 
             switch (clothingType) {
                 case 'tops':
-                    tips.push('Pour les hauts, la mesure de poitrine est la plus importante');
-                    if (bust > 95) {
-                        tips.push('Avec votre tour de poitrine, privilégiez les matières stretch pour plus de confort');
-                    }
+                    tips.push('Pour les hauts, la mesure de poitrine est prioritaire.');
+                    if (bust > 95) tips.push('Avec ce tour de poitrine, privilégier les matières stretch pour le confort.');
                     break;
                 case 'bottoms':
-                    tips.push('Pour les bas, les mesures de taille et hanches sont cruciales');
-                    tips.push('Vérifiez toujours la longueur d\'entrejambe si elle est indiquée');
+                    tips.push('Pour les bas, taille et hanches sont les mesures critiques — vérifier l\'entrejambe.');
                     break;
                 case 'dresses':
-                    tips.push('Pour les robes, toutes vos mesures comptent, soyez attentive à la coupe');
-                    tips.push('Une robe peut nécessiter une taille différente selon qu\'elle soit ajustée ou ample');
+                    tips.push('Pour les robes, toutes les mesures comptent — la coupe (ajustée ou ample) peut faire varier la taille.');
                     break;
                 case 'underwear':
-                    tips.push('Les sous-vêtements doivent être parfaitement ajustés, ne lésinez pas sur la qualité');
-                    tips.push('Les mesures exactes sont encore plus importantes pour les sous-vêtements');
+                    tips.push('Sous-vêtements : ajustement parfait obligatoire, mesures exactes encore plus importantes.');
                     break;
                 case 'outerwear':
-                    tips.push('Les vestes et manteaux se portent généralement une taille au-dessus pour l\'aisance');
-                    tips.push('Pensez aux couches que vous porterez en dessous');
+                    tips.push('Vestes et manteaux : prendre une taille au-dessus pour l\'aisance et anticiper les couches.');
                     break;
             }
 
             if (height && height < 160) {
-                tips.push('Avec votre taille, privilégiez les coupes qui allongent la silhouette');
+                tips.push('Avec cette taille corporelle, privilégier les coupes qui allongent la silhouette.');
             } else if (height && height > 175) {
-                tips.push('Votre grande taille vous permet de porter toutes les coupes avec élégance');
+                tips.push('Cette grande taille permet toutes les coupes avec élégance.');
             }
 
-            tips.push('Gardez en tête que chaque marque a ses propres standards, consultez toujours le guide spécifique');
+            tips.push('Chaque marque a ses propres standards — toujours consulter le guide spécifique.');
 
             return tips;
         }
-
-        window.addEventListener('load', function() {
-            const sections = document.querySelectorAll('.measurement-guide, .morphology-section, .advice-section');
-            sections.forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    section.style.transition = 'all 0.6s ease';
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
     </script>
 </body>
 </html>
